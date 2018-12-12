@@ -57,6 +57,26 @@ public class DefaultHandlerInterceptor implements HandlerInterceptor {
 
 > @DeleteMapping == @RequestMapping(method = RequestMethod.DELETE) Delete(D)
 
+## 异常处理
+
+### servlet
+
+#### servlet规范
+
+| 请求属性                               | 类型                  |
+| ---------------------------------- | ------------------- |
+| javax.servlet.error.status_code    | java.lang.Integer   |
+| javax.servlet.error.exception_type | java.lang.Class     |
+| javax.servlet.error.message        | java.lang.Class     |
+| javax.servlet.error.exception      | java.lang.Throwable |
+| javax.servlet.error.request_uri    | java.lang.String    |
+| javax.servlet.error.servlet_name   | java.lang.String    |
+|                                    |                     |
+
+> 代码见 【servlet-error-handle】
 
 
+### spring mvc
+
+### spring boot
 
