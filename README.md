@@ -50,8 +50,11 @@ public class DefaultHandlerInterceptor implements HandlerInterceptor {
 ```
 
 > @PostMapping == @RequestMapping(method = RequestMethod.POST)  Create(C)
+
 > @GetMapping == @RequestMapping(method = RequestMethod.GET) Read(R)
+
 > @PutMapping == @RequestMapping(method = RequestMethod.PUT) Update(U)
+
 > @DeleteMapping == @RequestMapping(method = RequestMethod.DELETE) Delete(D)
 
 
