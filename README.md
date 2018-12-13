@@ -111,3 +111,56 @@ public class DefaultHandlerInterceptor implements HandlerInterceptor {
 状态码：比较通用，不需要理解Spring WebMVC 异常体系
 
 不足：页面处理的路径必须固定
+
+
+## 视图
+
+### View
+
+> render() 处理页面的渲染逻辑 (Velocity、JSP、Thymeleaf)
+
+> model 数据
+
+> request 请求
+
+> response 响应
+
+```java
+public interface View {
+    	void render(@Nullable Map<String, ?> model, HttpServletRequest request, HttpServletResponse response)
+    			throws Exception;
+}
+```
+
+### ViewResolver
+
+> 寻找合适的view对象
+
+```java
+public interface ViewResolver {
+    	@Nullable
+    	View resolveViewName(String viewName, Locale locale) throws Exception;
+}
+```
+
+> thymeleaf
+
+> ThymeleafViewResolver
+
+> RequestURI -> RequestMappingHandlerMapping -> HandleMethod -> return "viewName" -> ViewResolver -> View -> render -> HTML
+```java
+public class ThymeleafViewResolver 
+        extends AbstractCachingViewResolver 
+        implements Ordered {
+}
+```
+
+### ContentNegotiationViewResolver
+
+> 内容协商
+
+> 用于处理多个ViewResolver：JSP、Velocity、Thymeleaf 
+
+> 当所有的ViewResover 配置完成时，他们的order 默认值一样，所以先来先服务（List）
+  
+> 当他们定义自己的order，通过order 来倒序排列
