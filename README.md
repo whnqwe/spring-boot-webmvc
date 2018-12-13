@@ -66,11 +66,11 @@ public class DefaultHandlerInterceptor implements HandlerInterceptor {
 | 请求属性                               | 类型                  |
 | ---------------------------------- | ------------------- |
 | javax.servlet.error.status_code    | java.lang.Integer   |
-| javax.servlet.error.exception_type | java.lang.Class     |
+| javax.servlet.error.exceptjavax.servlet.error.servlet_name ion_type | java.lang.Class     |
 | javax.servlet.error.message        | java.lang.Class     |
 | javax.servlet.error.exception      | java.lang.Throwable |
 | javax.servlet.error.request_uri    | java.lang.String    |
-| javax.servlet.error.servlet_name   | java.lang.String    |
+|   | java.lang.String    |
 |                                    |                     |
 
 > 代码见 【servlet-error-handle】
@@ -78,5 +78,36 @@ public class DefaultHandlerInterceptor implements HandlerInterceptor {
 
 ### spring mvc
 
+@ExceptionHandler
+
+@RestControllerAdvice = @ControllerAdvice + @ResponseBody
+
+@ControllerAdvice
+
 ### spring boot
 
+实现 ErrorPageRegistrar
+
+注册 ErrorPage 对象
+
+实现 ErrorPage 对象中的Path 路径Web服务
+
+###  servlet | spring mvc | spring boot 对比
+
+###### servlet
+
+优点：统一处理，业界标准
+
+不足：灵活度不够，只能定义 web.xml文件里面
+
+###### Spring Web MVC 
+
+优点：易于理解，尤其是全局异常处理
+
+不足：很难完全掌握所有的异常类型
+
+###### spring boot
+
+状态码：比较通用，不需要理解Spring WebMVC 异常体系
+
+不足：页面处理的路径必须固定
